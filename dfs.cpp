@@ -3,7 +3,7 @@
 #include<stack>
 using namespace std;
 
-void DFS(int start_node,vector<vector<int>>&adj,vector<bool>&visited,int target)
+void DFS(int start_node,vector<vector<int>>&adj,vector<bool>&visited)
 {
     cout<<endl;
     stack<int>s;
@@ -13,7 +13,6 @@ void DFS(int start_node,vector<vector<int>>&adj,vector<bool>&visited,int target)
         int u = s.top();
         s.pop();
         cout<<u<<endl;
-        if(u == target) {cout<<"Target Found!"; break;};
         for(int neignbour:adj[u]) {
             if(!visited[neignbour]) {
                 s.push(neignbour);
@@ -66,7 +65,7 @@ int main()
     int target;
     cout<<"Enter target Node\n";
     cin>>target;
-    DFS(start_node,adj,visited,target);
+    DFS(start_node,adj,visited);
     vector<int>path;
     visited.assign(num_nodes, false);
     cout << "\nPerforming DFS Search (with path reconstruction):\n";
